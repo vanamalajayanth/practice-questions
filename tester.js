@@ -1,14 +1,12 @@
-const isWordGreaterThanLimit = function (limit) {
-  return function (string) {
-    return string.length > limit;
+const isAgeGreaterThanLimit = function (limit) {
+  return function (personDetails) {
+    return personDetails.age > limit;
   };
 };
 
-const filterLongWords = function (words) {
-  return words.filter(isWordGreaterThanLimit(5));
+const filterAdults = function (people) {
+  return people.filter(isAgeGreaterThanLimit(30));
 };
 
-console.log(filterLongWords([]));
-console.log(filterLongWords(['apple']));
-console.log(filterLongWords(["apple", "banana", "kiwi", "grape"]));
-console.log(filterLongWords(["apple", "banana", "kiwi", "grape", 'papaya', 'pine apple']));
+console.log(filterAdults([]));
+console.log(filterAdults([{ name: "Alice", age: 25 }, { name: "Bob", age: 35 }]));
