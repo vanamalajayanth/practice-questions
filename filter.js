@@ -1,15 +1,9 @@
-const isElementGreaterThanStandard = function (element, standard) {
-  return element > standard;
-};
-
 // even numbers [1, 2, 3, 4, 5] => [2, 4]
 
-const isEven = function (number) {
-  return (number & 1) === 0;
-};
-
 const filterEvenNumbers = function (numbers) {
-  return numbers.filter(isEven);
+  return numbers.filter(function (number) {
+    return (number & 1) === 0;
+  });
 };
 
 // words with more than 5 letters ["apple", "banana", "kiwi", "grape"] => ["banana"]
@@ -103,7 +97,9 @@ const filterInStockProducts = function (products) {
 };
 
 // orders placed in the last 30 days [{orderDate: "2024-11-01"}, {orderDate: "2024-12-01"}] => [{orderDate: "2024-12-01"}]
-const filterRecentOrders = function (orders) { };
+const filterRecentOrders = function (orders) {
+
+};
 
 // products with a price lower than the average [{name: "item1", price: 10}, {name: "item2", price: 20}, {name: "item3", price: 5}] => [{name: "item1", price: 10}, {name: "item3", price: 5}]
 const filterBelowAveragePrice = function (products) { };

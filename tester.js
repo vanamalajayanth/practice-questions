@@ -1,10 +1,9 @@
-const isProductInStock = function (productDetails) {
-  return productDetails.inStock;
+const filterEvenNumbers = function (numbers) {
+  return numbers.filter(function (number) {
+    return (number & 1) === 0;
+  });
 };
-
-const filterInStockProducts = function (products) {
-  return products.filter(isProductInStock);
-};
-
-console.log(filterInStockProducts([]));
-console.log(filterInStockProducts([{ product: "apple", inStock: true }, { product: "banana", inStock: false }]));
+console.log(filterEvenNumbers([]));
+console.log(filterEvenNumbers([1]));
+console.log(filterEvenNumbers([1, 2, 3, 4, 5]));
+console.log(filterEvenNumbers([1, 2, 3, 4, 5, 7, 8, 4, 5, 2, 3]));
