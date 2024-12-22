@@ -1,8 +1,8 @@
-const truthValuesOf = function (numbers) {
-  return numbers.map(function (number) {
-    return number > 0;
+const reversedStringsOf = function (strings) {
+  return strings.map(function (string) {
+    return string.split('').reverse().join('');
   });
 };
 
-console.log(truthValuesOf([]));
-console.log(truthValuesOf([0, 1, 2, 3]));
+console.log(reversedStringsOf([]));
+console.log(reversedStringsOf(["hello", "world"]));

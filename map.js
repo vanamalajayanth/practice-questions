@@ -40,8 +40,11 @@ const truthValuesOf = function (numbers) {
 };
 
 // reverse strings of ["hello", "world"] => ["olleh", "dlrow"]
+
 const reversedStringsOf = function (strings) {
-  return strings.map();
+  return strings.map(function (string) {
+    return string.split('').reverse().join('');
+  });
 };
 
 // double letters of ["cat", "dog", "bat"] => ["ccaat", "ddoog", "bbaatt"]
