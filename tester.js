@@ -1,13 +1,14 @@
-const isPassed = function (subject) {
-  return subject.passed;
+const isMonthMatching = function (currentMonth) {
+  return function (person) {
+    const givenMonth = +(person.birthDate.slice(5, 7));
+
+    return currentMonth === givenMonth;
+  };
 };
 
-const areAllSubjectsPassed = function (student) {
-  return student.subjects.every(isPassed);
+const filterBirthdaysThisMonth = function (people) {
+  return people.filter(isMonthMatching(12));
 };
 
-const filterStudentsWithAllSubjectsPassed = function (students) {
-  return students.filter(areAllSubjectsPassed);
-};
-console.log(filterStudentsWithAllSubjectsPassed([]));
-console.log(filterStudentsWithAllSubjectsPassed([{ name: "John", subjects: [{ name: "Math", passed: true }, { name: "Science", passed: true }] }, { name: "Jane", subjects: [{ name: "Math", passed: false }, { name: "Science", passed: true }] }]));
+console.log(filterBirthdaysThisMonth([]));
+console.log(filterBirthdaysThisMonth([{ name: "Alice", birthDate: "2024-12-01" }, { name: "Bob", birthDate: "2024-11-01" }]));
