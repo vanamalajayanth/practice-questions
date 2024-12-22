@@ -1,8 +1,8 @@
-const squaresOf = function (numbers) {
-  return numbers.map(function (number) {
-    return number ** 2;
+const lengthsOf = function (strings) {
+  return strings.map(function (string) {
+    return string.length;
   });
 };
 
-console.log(squaresOf([]));
-console.log(squaresOf([1, 2, 3]));
+console.log(lengthsOf([]));
+console.log(lengthsOf(["apple", "banana", "kiwi"]));
