@@ -1,18 +1,18 @@
-const getOrdersSum = function (sum, product) {
-  return product.amount + sum;
+const getRatingsSum = function (sum, book) {
+  return sum + book.rating;
 };
 
-const isAmountLowerThanAverage = function (orders) {
-  const average = orders.reduce(getOrdersSum, 0) / orders.length;
+const isRatingGreaterThanAverage = function (books) {
+  const average = books.reduce(getRatingsSum, 0) / books.length;
 
-  return function (order) {
-    return order.amount > average;
+  return function (book) {
+    return book.rating > average;
   };
 };
 
-const filterHighValueOrders = function (orders) {
-  return orders.filter(isAmountLowerThanAverage(orders));
+const filterTopRatedBooks = function (books) {
+  return books.filter(isRatingGreaterThanAverage(books));
 };
 
-console.log(filterHighValueOrders([]));
-console.log(filterHighValueOrders([{ orderId: 1, amount: 20 }, { orderId: 2, amount: 50 }, { orderId: 3, amount: 10 }]));
+console.log(filterTopRatedBooks([]));
+console.log(filterTopRatedBooks([{ title: "Book 1", rating: 4 }, { title: "Book 2", rating: 5 }, { title: "Book 3", rating: 3 }]));

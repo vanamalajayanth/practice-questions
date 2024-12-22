@@ -160,7 +160,22 @@ const filterHighValueOrders = function (orders) {
 };
 
 // books with reviews higher than the average rating [{title: "Book 1", rating: 4}, {title: "Book 2", rating: 5}, {title: "Book 3", rating: 3}] => [{title: "Book 2", rating: 5}]
-const filterTopRatedBooks = function (books) { };
+
+const getRatingsSum = function (sum, book) {
+  return sum + book.rating;
+};
+
+const isRatingGreaterThanAverage = function (books) {
+  const average = books.reduce(getRatingsSum, 0) / books.length;
+
+  return function (book) {
+    return book.rating > average;
+  };
+};
+
+const filterTopRatedBooks = function (books) {
+  return books.filter(isRatingGreaterThanAverage(books));
+};
 
 // employees whose salary is higher than the department average [{name: "Alice", salary: 5000, department: "HR"}, {name: "Bob", salary: 7000, department: "HR"}, {name: "Charlie", salary: 4000, department: "IT"}] => [{name: "Bob", salary: 7000, department: "HR"}]
 const filterHighSalaryEmployees = function (employees) { };
