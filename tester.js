@@ -1,18 +1,13 @@
-const getSum = function (sum, product) {
-  return product.price + sum;
+const isPassed = function (subject) {
+  return subject.passed;
 };
 
-const isPriceLowerThanAverage = function (products) {
-  const average = products.reduce(getSum, 0) / products.length;
-
-  return function (product) {
-    return product.price < average;
-  };
+const areAllSubjectsPassed = function (student) {
+  return student.subjects.every(isPassed);
 };
 
-const filterBelowAveragePrice = function (products) {
-  return products.filter(isPriceLowerThanAverage(products));
+const filterStudentsWithAllSubjectsPassed = function (students) {
+  return students.filter(areAllSubjectsPassed);
 };
-
-console.log(filterBelowAveragePrice([]));
-console.log(filterBelowAveragePrice([{ name: "item1", price: 10 }, { name: "item2", price: 20 }, { name: "item3", price: 5 }]));
+console.log(filterStudentsWithAllSubjectsPassed([]));
+console.log(filterStudentsWithAllSubjectsPassed([{ name: "John", subjects: [{ name: "Math", passed: true }, { name: "Science", passed: true }] }, { name: "Jane", subjects: [{ name: "Math", passed: false }, { name: "Science", passed: true }] }]));
