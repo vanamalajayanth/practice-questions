@@ -1,10 +1,11 @@
-const isProfileComplete = function (userDetails) {
-  return !userDetails.profileComplete;
+const isScoreGreaterThanStandard = function (standard) {
+  return function (studentDetails) {
+    return studentDetails.grade > standard;
+  };
 };
 
-const filterIncompleteProfiles = function (users) {
-  return users.filter(isProfileComplete);
+const filterHighGrades = function (students) {
+  return students.filter(isScoreGreaterThanStandard(80));
 };
-
-console.log(filterIncompleteProfiles([]));
-console.log(filterIncompleteProfiles([{ username: "alice", profileComplete: true }, { username: "bob", profileComplete: false }]));
+console.log(filterHighGrades([]));
+console.log(filterHighGrades([{ name: "John", grade: 75 }, { name: "Jane", grade: 85 }]));

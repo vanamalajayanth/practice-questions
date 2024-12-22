@@ -81,7 +81,16 @@ const filterIncompleteProfiles = function (users) {
 };
 
 // students with grades above 80 [{name: "John", grade: 75}, {name: "Jane", grade: 85}] => [{name: "Jane", grade: 85}]
-const filterHighGrades = function (students) { };
+
+const isScoreGreaterThanStandard = function (standard) {
+  return function (studentDetails) {
+    return studentDetails.grade > standard;
+  };
+};
+
+const filterHighGrades = function (students) {
+  return students.filter(isScoreGreaterThanStandard(80));
+};
 
 // products that are in stock [{product: "apple", inStock: true}, {product: "banana", inStock: false}] => [{product: "apple", inStock: true}]
 const filterInStockProducts = function (products) { };
