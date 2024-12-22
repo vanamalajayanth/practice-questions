@@ -1,12 +1,12 @@
-const isNumberGreaterThanLimit = function (limit) {
-  return function (number) {
-    return number > limit;
+const arePagesMoreThanStandard = function (standard) {
+  return function (bookDetails) {
+    return bookDetails.pages > standard;
   };
 };
 
-const filterNumbersGreaterThanTen = function (numbers) {
-  return numbers.filter(isNumberGreaterThanLimit(10));
+const filterLongBooks = function (books) {
+  return books.filter(arePagesMoreThanStandard(200));
 };
 
-console.log(filterNumbersGreaterThanTen([]));
-console.log(filterNumbersGreaterThanTen([5, 12, 7, 18, 3]));
+console.log(filterLongBooks([]));
+console.log(filterLongBooks([{ title: "Book 1", pages: 150 }, { title: "Book 2", pages: 250 }]));
