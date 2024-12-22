@@ -1,8 +1,8 @@
-const firstCharactersOf = function (strings) {
-  return strings.map(function (string) {
-    return string[0];
+const truthValuesOf = function (numbers) {
+  return numbers.map(function (number) {
+    return number <= 0 ? false : true;
   });
 };
 
-console.log(firstCharactersOf([]));
-console.log(firstCharactersOf(["apple", "banana", "kiwi"]));
+console.log(truthValuesOf([]));
+console.log(truthValuesOf([0, 1, 2, 3]));
