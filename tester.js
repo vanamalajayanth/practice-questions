@@ -1,11 +1,10 @@
-const isScoreGreaterThanStandard = function (standard) {
-  return function (studentDetails) {
-    return studentDetails.grade > standard;
-  };
+const isProductInStock = function (productDetails) {
+  return productDetails.inStock;
 };
 
-const filterHighGrades = function (students) {
-  return students.filter(isScoreGreaterThanStandard(80));
+const filterInStockProducts = function (products) {
+  return products.filter(isProductInStock);
 };
-console.log(filterHighGrades([]));
-console.log(filterHighGrades([{ name: "John", grade: 75 }, { name: "Jane", grade: 85 }]));
+
+console.log(filterInStockProducts([]));
+console.log(filterInStockProducts([{ product: "apple", inStock: true }, { product: "banana", inStock: false }]));
