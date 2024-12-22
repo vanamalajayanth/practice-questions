@@ -1,3 +1,7 @@
+const isElementGreaterThanStandard = function (element, standard) {
+  return element > standard;
+};
+
 // even numbers [1, 2, 3, 4, 5] => [2, 4]
 
 const isEven = function (number) {
@@ -67,7 +71,14 @@ const filterLongBooks = function (books) {
 };
 
 // users with incomplete profiles [{username: "alice", profileComplete: true}, {username: "bob", profileComplete: false}] => [{username: "bob", profileComplete: false}]
-const filterIncompleteProfiles = function (users) { };
+
+const isProfileComplete = function (userDetails) {
+  return !userDetails.profileComplete;
+};
+
+const filterIncompleteProfiles = function (users) {
+  return users.filter(isProfileComplete);
+};
 
 // students with grades above 80 [{name: "John", grade: 75}, {name: "Jane", grade: 85}] => [{name: "Jane", grade: 85}]
 const filterHighGrades = function (students) { };
