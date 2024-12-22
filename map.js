@@ -35,13 +35,13 @@ const firstCharactersOf = function (strings) {
 
 const truthValuesOf = function (numbers) {
   return numbers.map(function (number) {
-    return number <= 0 ? false : true;
+    return number > 0;
   });
 };
 
 // reverse strings of ["hello", "world"] => ["olleh", "dlrow"]
-const reversedStringsOf = function (strings) { 
-  
+const reversedStringsOf = function (strings) {
+  return strings.map();
 };
 
 // double letters of ["cat", "dog", "bat"] => ["ccaat", "ddoog", "bbaatt"]

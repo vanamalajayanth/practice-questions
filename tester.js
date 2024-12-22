@@ -1,6 +1,6 @@
 const truthValuesOf = function (numbers) {
   return numbers.map(function (number) {
-    return number <= 0 ? false : true;
+    return number > 0;
   });
 };
 
