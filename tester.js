@@ -1,8 +1,18 @@
-const filterInStockProducts = function (products) {
-  return products.filter(function isProductInStock(product) {
-    return product.inStock;
-  });
+const getSum = function (sum, product) {
+  return product.price + sum;
 };
 
-console.log(filterInStockProducts([]));
-console.log(filterInStockProducts([{ product: "apple", inStock: true }, { product: "banana", inStock: false }]));
+const isPriceLowerThanAverage = function (products) {
+  const average = products.reduce(getSum, 0) / products.length;
+
+  return function (product) {
+    return product.price < average;
+  };
+};
+
+const filterBelowAveragePrice = function (products) {
+  return products.filter(isPriceLowerThanAverage(products));
+};
+
+console.log(filterBelowAveragePrice([]));
+console.log(filterBelowAveragePrice([{ name: "item1", price: 10 }, { name: "item2", price: 20 }, { name: "item3", price: 5 }]));
