@@ -1,10 +1,12 @@
-const isUserActive = function (userDetails) {
-  return userDetails.active;
+const isNumberGreaterThanLimit = function (limit) {
+  return function (number) {
+    return number > limit;
+  };
 };
 
-const filterActiveUsers = function (users) {
-  return users.filter(isUserActive);
+const filterNumbersGreaterThanTen = function (numbers) {
+  return numbers.filter(isNumberGreaterThanLimit(10));
 };
 
-console.log(filterActiveUsers([]));
-console.log(filterActiveUsers([{ username: "alice", active: true }, { username: "bob", active: false }]));
+console.log(filterNumbersGreaterThanTen([]));
+console.log(filterNumbersGreaterThanTen([5, 12, 7, 18, 3]));
