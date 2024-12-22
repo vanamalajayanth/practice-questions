@@ -1,8 +1,8 @@
-const filterIncompleteProfiles = function (users) {
-  return users.filter(function isProfileComplete(user) {
-    return !user.profileComplete;
+const filterInStockProducts = function (products) {
+  return products.filter(function isProductInStock(product) {
+    return product.inStock;
   });
 };
 
-console.log(filterIncompleteProfiles([]));
-console.log(filterIncompleteProfiles([{ username: "alice", profileComplete: true }, { username: "bob", profileComplete: false }]));
+console.log(filterInStockProducts([]));
+console.log(filterInStockProducts([{ product: "apple", inStock: true }, { product: "banana", inStock: false }]));
