@@ -1,7 +1,8 @@
-const uppercaseOf = function (strings) {
+const firstCharactersOf = function (strings) {
   return strings.map(function (string) {
-    return string.toUpperCase();
+    return string[0];
   });
 };
-console.log(uppercaseOf([]));
-console.log(uppercaseOf(["hello", "world"]));
+
+console.log(firstCharactersOf([]));
+console.log(firstCharactersOf(["apple", "banana", "kiwi"]));
