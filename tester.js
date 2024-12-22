@@ -1,12 +1,14 @@
-const isEven = function (number) {
-  return (number & 1) === 0;
+const isWordGreaterThanLimit = function (limit) {
+  return function (string) {
+    return string.length > limit;
+  };
 };
 
-const filterEvenNumbers = function (numbers) {
-  return numbers.filter(isEven);
+const filterLongWords = function (words) {
+  return words.filter(isWordGreaterThanLimit(5));
 };
 
-console.log(filterEvenNumbers([]));
-console.log(filterEvenNumbers([1]));
-console.log(filterEvenNumbers([1, 2, 3, 4, 5]));
-console.log(filterEvenNumbers([1, 2, 3, 4, 5, 7, 8, 4, 5, 2, 3]));
+console.log(filterLongWords([]));
+console.log(filterLongWords(['apple']));
+console.log(filterLongWords(["apple", "banana", "kiwi", "grape"]));
+console.log(filterLongWords(["apple", "banana", "kiwi", "grape", 'papaya', 'pine apple']));
