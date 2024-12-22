@@ -1,8 +1,7 @@
-const lengthsOf = function (strings) {
+const uppercaseOf = function (strings) {
   return strings.map(function (string) {
-    return string.length;
+    return string.toUpperCase();
   });
 };
-
-console.log(lengthsOf([]));
-console.log(lengthsOf(["apple", "banana", "kiwi"]));
+console.log(uppercaseOf([]));
+console.log(uppercaseOf(["hello", "world"]));
