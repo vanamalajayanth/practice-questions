@@ -1,8 +1,8 @@
-const filterActiveUsers = function (users) {
-  return users.filter(function (user) {
-    return user.active;
+const filterIncompleteProfiles = function (users) {
+  return users.filter(function isProfileComplete(user) {
+    return !user.profileComplete;
   });
 };
 
-console.log(filterActiveUsers([]));
-console.log(filterActiveUsers([{ username: "alice", active: true }, { username: "bob", active: false }]));
+console.log(filterIncompleteProfiles([]));
+console.log(filterIncompleteProfiles([{ username: "alice", profileComplete: true }, { username: "bob", profileComplete: false }]));
