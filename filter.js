@@ -32,12 +32,10 @@ const filterAdults = function (people) {
 
 // active users [{username: "alice", active: true}, {username: "bob", active: false}] => [{username: "alice", active: true}]
 
-const isUserActive = function (userDetails) {
-  return userDetails.active;
-};
-
 const filterActiveUsers = function (users) {
-  return users.filter(isUserActive);
+  return users.filter(function (user) {
+    return user.active;
+  });
 };
 
 // numbers greater than 10 [5, 12, 7, 18, 3] => [12, 18]

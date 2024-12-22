@@ -1,9 +1,8 @@
-const filterEvenNumbers = function (numbers) {
-  return numbers.filter(function (number) {
-    return (number & 1) === 0;
+const filterActiveUsers = function (users) {
+  return users.filter(function (user) {
+    return user.active;
   });
 };
-console.log(filterEvenNumbers([]));
-console.log(filterEvenNumbers([1]));
-console.log(filterEvenNumbers([1, 2, 3, 4, 5]));
-console.log(filterEvenNumbers([1, 2, 3, 4, 5, 7, 8, 4, 5, 2, 3]));
+
+console.log(filterActiveUsers([]));
+console.log(filterActiveUsers([{ username: "alice", active: true }, { username: "bob", active: false }]));
