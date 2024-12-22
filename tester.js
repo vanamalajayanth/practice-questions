@@ -1,14 +1,18 @@
-const isMonthMatching = function (currentMonth) {
-  return function (person) {
-    const givenMonth = +(person.birthDate.slice(5, 7));
+const getOrdersSum = function (sum, product) {
+  return product.amount + sum;
+};
 
-    return currentMonth === givenMonth;
+const isAmountLowerThanAverage = function (orders) {
+  const average = orders.reduce(getOrdersSum, 0) / orders.length;
+
+  return function (order) {
+    return order.amount > average;
   };
 };
 
-const filterBirthdaysThisMonth = function (people) {
-  return people.filter(isMonthMatching(12));
+const filterHighValueOrders = function (orders) {
+  return orders.filter(isAmountLowerThanAverage(orders));
 };
 
-console.log(filterBirthdaysThisMonth([]));
-console.log(filterBirthdaysThisMonth([{ name: "Alice", birthDate: "2024-12-01" }, { name: "Bob", birthDate: "2024-11-01" }]));
+console.log(filterHighValueOrders([]));
+console.log(filterHighValueOrders([{ orderId: 1, amount: 20 }, { orderId: 2, amount: 50 }, { orderId: 3, amount: 10 }]));
