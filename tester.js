@@ -1,12 +1,10 @@
-const isAgeGreaterThanLimit = function (limit) {
-  return function (personDetails) {
-    return personDetails.age > limit;
-  };
+const isUserActive = function (userDetails) {
+  return userDetails.active;
 };
 
-const filterAdults = function (people) {
-  return people.filter(isAgeGreaterThanLimit(30));
+const filterActiveUsers = function (users) {
+  return users.filter(isUserActive);
 };
 
-console.log(filterAdults([]));
-console.log(filterAdults([{ name: "Alice", age: 25 }, { name: "Bob", age: 35 }]));
+console.log(filterActiveUsers([]));
+console.log(filterActiveUsers([{ username: "alice", active: true }, { username: "bob", active: false }]));
