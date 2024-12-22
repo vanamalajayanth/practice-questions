@@ -47,14 +47,16 @@ const reversedStringsOf = function (strings) {
   });
 };
 
-// double letters of ["cat", "dog", "bat"] => ["ccaat", "ddoog", "bbaatt"]
+// double letters of ["cat", "dog", "bat"] => ["ccaatt", "ddoogg", "bbaatt"]
+
+const doubleLetters = function (string) {
+  return string.split('').map(function (letter) {
+    return letter.repeat(2);
+  }).join("");
+};
 
 const doubleLettersOf = function (strings) {
-  return strings.map(function (string) {
-    return string.split('').map(function (string) {
-      return string.repeat(2);
-    }).join('');
-  });
+  return strings.map(doubleLetters);
 };
 
 // boolean negation of [true, false, true] => [false, true, false]

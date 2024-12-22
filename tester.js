@@ -1,9 +1,11 @@
+const doubleLetters = function (string) {
+  return string.split('').map(function (letter) {
+    return letter.repeat(2);
+  }).join("");
+};
+
 const doubleLettersOf = function (strings) {
-  return strings.map(function (string) {
-    return string.split('').map(function (string) {
-      return string.repeat(2);
-    }).join('');
-  });
+  return strings.map(doubleLetters);
 };
 
 console.log(doubleLettersOf([]));
