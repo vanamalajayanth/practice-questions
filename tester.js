@@ -1,8 +1,11 @@
-const charCodesOf = function (strings) {
-  return strings.map(function (string) {
-    return string.charCodeAt();
-  });
+const getDomains = function (string) {
+  const startIndex = string.indexOf("@");
+  return string.slice(startIndex + 1);
 };
 
-console.log(charCodesOf([]));
-console.log(charCodesOf(["a", "b", "c"]));
+const domainNamesOf = function (emails) {
+  return emails.map(getDomains);
+};
+
+console.log(domainNamesOf([]));
+console.log(domainNamesOf(["user1@gmail.com", "admin@yahoo.com"]));
