@@ -1,93 +1,55 @@
 // even numbers [1, 2, 3, 4, 5] => [2, 4]
 
 const filterEvenNumbers = function (numbers) {
-  return numbers.filter(function (number) {
-    return (number & 1) === 0;
-  });
+  return numbers.filter((number) => number % 2 === 0);
 };
 
 // words with more than 5 letters ["apple", "banana", "kiwi", "grape"] => ["banana"]
 
-const isWordGreaterThanLimit = function (limit) {
-  return function (string) {
-    return string.length > limit;
-  };
-};
-
 const filterLongWords = function (words) {
-  return words.filter(isWordGreaterThanLimit(5));
+  return words.filter((word) => word.length > 5);
 };
 
 // people older than 30 [{name: "Alice", age: 25}, {name: "Bob", age: 35}] => [{name: "Bob", age: 35}]
 
-const isAgeGreaterThanLimit = function (limit) {
-  return function (personDetails) {
-    return personDetails.age > limit;
-  };
-};
-
 const filterAdults = function (people) {
-  return people.filter(isAgeGreaterThanLimit(30));
+  return people.filter((person) => person.age > 30);
 };
 
 // active users [{username: "alice", active: true}, {username: "bob", active: false}] => [{username: "alice", active: true}]
 
 const filterActiveUsers = function (users) {
-  return users.filter(function (user) {
-    return user.active;
-  });
+  return users.filter((user) => user.active);
 };
 
 // numbers greater than 10 [5, 12, 7, 18, 3] => [12, 18]
 
-const isNumberGreaterThanLimit = function (limit) {
-  return function (number) {
-    return number > limit;
-  };
-};
-
 const filterNumbersGreaterThanTen = function (numbers) {
-  return numbers.filter(isNumberGreaterThanLimit(10));
+  return numbers.filter((number) => number > 10);
 };
 
 // books with more than 200 pages [{title: "Book 1", pages: 150}, {title: "Book 2", pages: 250}] => [{title: "Book 2", pages: 250}]
 
-const arePagesMoreThanStandard = function (standard) {
-  return function (bookDetails) {
-    return bookDetails.pages > standard;
-  };
-};
-
 const filterLongBooks = function (books) {
-  return books.filter(arePagesMoreThanStandard(200));
+  return books.filter((book) => book.pages > 200);
 };
 
 // users with incomplete profiles [{username: "alice", profileComplete: true}, {username: "bob", profileComplete: false}] => [{username: "bob", profileComplete: false}]
 
 const filterIncompleteProfiles = function (users) {
-  return users.filter(function isProfileComplete(user) {
-    return !user.profileComplete;
-  });
+  return users.filter((user) => !user.profileComplete);
 };
 
 // students with grades above 80 [{name: "John", grade: 75}, {name: "Jane", grade: 85}] => [{name: "Jane", grade: 85}]
 
-const isScoreGreaterThanStandard = function (standard) {
-  return function (studentDetails) {
-    return studentDetails.grade > standard;
-  };
-};
-
 const filterHighGrades = function (students) {
-  return students.filter(isScoreGreaterThanStandard(80));
+  return students.filter((student) => student.grade > 80);
 };
 
 // products that are in stock [{product: "apple", inStock: true}, {product: "banana", inStock: false}] => [{product: "apple", inStock: true}]
 
 const filterInStockProducts = function (products) {
-  return products.filter(function isProductInStock(product) {
-    return product.inStock;
-  });
+  return products.filter((product) => product.inStock);
 };
 
 // orders placed in the last 30 days [{orderDate: "2024-11-01"}, {orderDate: "2024-12-01"}] => [{orderDate: "2024-12-01"}]
@@ -99,16 +61,10 @@ const getSum = function (sum, product) {
   return product.price + sum;
 };
 
-const isPriceLowerThanAverage = function (products) {
+const filterBelowAveragePrice = function (products) {
   const average = products.reduce(getSum, 0) / products.length;
 
-  return function (product) {
-    return product.price < average;
-  };
-};
-
-const filterBelowAveragePrice = function (products) {
-  return products.filter(isPriceLowerThanAverage(products));
+  return products.filter((product) => product.price < average);
 };
 
 // active users who posted in the last 7 days [{username: "alice", lastPostDate: "2024-12-01", active: true}, {username: "bob", lastPostDate: "2024-11-20", active: true}] => [{username: "alice", lastPostDate: "2024-12-01", active: true}]
@@ -143,20 +99,15 @@ const filterBirthdaysThisMonth = function (people) {
 };
 
 // orders that exceed the average order value [{orderId: 1, amount: 20}, {orderId: 2, amount: 50}, {orderId: 3, amount: 10}] => [{orderId: 2, amount: 50}]
+
 const getOrdersSum = function (sum, product) {
   return product.amount + sum;
 };
 
-const isAmountLowerThanAverage = function (orders) {
+const filterHighValueOrders = function (orders) {
   const average = orders.reduce(getOrdersSum, 0) / orders.length;
 
-  return function (order) {
-    return order.amount > average;
-  };
-};
-
-const filterHighValueOrders = function (orders) {
-  return orders.filter(isAmountLowerThanAverage(orders));
+  return orders.filter((order) => order.amount > average);
 };
 
 // books with reviews higher than the average rating [{title: "Book 1", rating: 4}, {title: "Book 2", rating: 5}, {title: "Book 3", rating: 3}] => [{title: "Book 2", rating: 5}]
@@ -165,21 +116,15 @@ const getRatingsSum = function (sum, book) {
   return sum + book.rating;
 };
 
-const isRatingGreaterThanAverage = function (books) {
+const filterTopRatedBooks = function (books) {
   const average = books.reduce(getRatingsSum, 0) / books.length;
 
-  return function (book) {
-    return book.rating > average;
-  };
-};
-
-const filterTopRatedBooks = function (books) {
-  return books.filter(isRatingGreaterThanAverage(books));
+  return books.filter((book => book.rating > average));
 };
 
 // employees whose salary is higher than the department average [{name: "Alice", salary: 5000, department: "HR"}, {name: "Bob", salary: 7000, department: "HR"}, {name: "Charlie", salary: 4000, department: "IT"}] => [{name: "Bob", salary: 7000, department: "HR"}]
 
-const filterHighSalaryEmployees = function (employees) {};
+const filterHighSalaryEmployees = function (employees) { };
 
 // cities with a population higher than the median [{name: "City A", population: 2000}, {name: "City B", population: 5000}, {name: "City C", population: 3000}] => [{name: "City B", population: 5000}]
 const filterCitiesAboveMedianPopulation = function (cities) { };
