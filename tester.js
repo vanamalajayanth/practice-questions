@@ -1,8 +1,8 @@
-const negatedBooleansOf = function (booleans) {
-  return booleans.map(function (boolean) {
-    return !boolean;
+const charCodesOf = function (strings) {
+  return strings.map(function (string) {
+    return string.charCodeAt();
   });
 };
 
-console.log(negatedBooleansOf([]));
-console.log(negatedBooleansOf([true, false, true]));
+console.log(charCodesOf([]));
+console.log(charCodesOf(["a", "b", "c"]));
