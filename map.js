@@ -1,42 +1,32 @@
 // squares of [1, 2, 3] => [1, 4, 9]
 
 const squaresOf = function (numbers) {
-  return numbers.map(function (number) {
-    return number ** 2;
-  });
+  return numbers.map((number) => number ** 2);
 };
 
 // lengths of ["apple", "banana", "kiwi"] => [5, 6, 4]
 
 const lengthsOf = function (strings) {
-  return strings.map(function (string) {
-    return string.length;
-  });
+  return strings.map((string) => string.length);
 };
 
 // uppercase of ["hello", "world"] => ["HELLO", "WORLD"]
 
 const uppercaseOf = function (strings) {
-  return strings.map(function (string) {
-    return string.toUpperCase();
-  });
+  return strings.map((string) => string.toUpperCase());
 };
 
 // first characters of ["apple", "banana", "kiwi"] => ["a", "b", "k"]
 
 const firstCharactersOf = function (strings) {
-  return strings.map(function (string) {
-    return string[0];
-  });
+  return strings.map((string) => string[0]);
 };
 
 // truth values of [0, 1, 2, 3] => [false, true, true, true]
 // Assume non-zero numbers are true, and zero is false
 
 const truthValuesOf = function (numbers) {
-  return numbers.map(function (number) {
-    return number > 0;
-  });
+  return numbers.map((number) => number > 0);
 };
 
 // reverse strings of ["hello", "world"] => ["olleh", "dlrow"]
@@ -89,7 +79,7 @@ const domainNamesOf = function (emails) {
 
 // split words in ["hello world", "goodbye moon"] => [["hello", "world"], ["goodbye", "moon"]]
 const splitWordsOf = function (strings) {
-  
+
 };
 
 // join arrays of [["a", "b"], ["c", "d"]] => ["ab", "cd"]
@@ -137,7 +127,9 @@ const sortedLettersOf = function (strings) { };
 const wrappedStringsOf = function (strings) { };
 
 // extract names from [{ name: "Alice" }, { name: "Bob" }] => ["Alice", "Bob"]
-const extractNames = function (objects) { };
+const extractNames = function (objects) {
+  return objects.map((object) => object.name);
+};
 
 // extract ages from [{ age: 25 }, { age: 30 }] => [25, 30]
 const extractAges = function (objects) { };
